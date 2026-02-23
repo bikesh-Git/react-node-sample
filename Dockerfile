@@ -9,7 +9,7 @@ RUN cd server && npm ci
 RUN cd client && npm ci && npm run build
 
 COPY server ./server
-COPY client/build ./server/public
+COPY client/dist ./server/public
 
 EXPOSE 3000
 
