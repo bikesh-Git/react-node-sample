@@ -2,11 +2,14 @@ FROM node:18
 
 WORKDIR /app
 
-COPY server/package*.json ./server/
 COPY client/package*.json ./client/
+COPY server/package*.json ./server/
 
+RUN cd client && npm ci
 RUN cd server && npm ci
-RUN cd client && npm ci && npm run build
+
+COPY client ./client
+RUN cd client && npm run build
 
 COPY server ./server
 COPY client/dist ./server/public
