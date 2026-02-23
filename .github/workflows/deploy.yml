@@ -23,7 +23,7 @@ jobs:
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ubuntu
-          key: ${{ secrets.GITHUB_TOKEN }}
+          key: ${{ secrets.My-Token }}
           source: "app.tar"
           target: "/home/ubuntu/"
 
@@ -32,7 +32,7 @@ jobs:
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ubuntu
-          key: ${{ secrets.GITHUB_TOKEN }}
+          key: ${{ secrets.My-Token }}
           script: |
             docker load < app.tar
             docker rm -f fullstack || true
